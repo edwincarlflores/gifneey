@@ -9,15 +9,18 @@ GIF viewing and search web application with data from [Giphy API](https://develo
 5. ESLint VS Code extension
 
 ## Running the application
-1. Install the dependencies: `npm install`
-2. Start the application: `npm start`
-3. Navigate to `http://localhost:3000`
+1. Checkout the `master` branch
+2. Store the provided `.env` file to the root directory
+3. Install the dependencies: `npm install`
+4. Start the application: `npm start`
+5. Navigate to `http://localhost:3000`
 
 ## Running the production build locally
-1. Install `serve` package globally from npm: `npm install -g serve`
-2. On the root directory, run `npm run build`
-3. Serve the generated build with the command: `serve -s build`
-4. Open localhost port specified in the description after running the command
+1. Checkout the `master` branch
+2. Install `serve` package globally from npm: `npm install -g serve`
+3. On the root directory, run `npm run build`
+4. Serve the generated build with the command: `serve -s build`
+5. Open localhost port specified in the description after running the command
 
 ## Built with
 - [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
