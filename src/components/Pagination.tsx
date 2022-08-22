@@ -25,7 +25,7 @@ const Pagination: FC<PaginationProps> = ({
   const [currentPageGroup, setCurrentPageGroup] = useState<number[]>([]);
   const pageNumbers: number[] = [];
   const pageNumberClassName = `page-link relative block py-1.5 px-2 sm:px-3 rounded border-0
-    bg-transparent outline-none transition-all duration-300 rounded text-gray-800 text-xs sm:text-lg
+    bg-transparent outline-none transition-all duration-300 rounded text-gray-800 text-sm sm:text-lg
     hover:text-gray-800 hover:bg-gray-200 focus:shadow-none`;
   const hiddenClassName = "hidden";
   const activeClassName =
