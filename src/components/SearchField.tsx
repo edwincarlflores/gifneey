@@ -21,7 +21,7 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
           setFieldValue(event.target.value);
         }}
         onKeyDown={(event) => {
-          if (event.key === "Enter") {
+          if (event.key === "Enter" && fieldValue) {
             setSearchQuery(fieldValue);
 
             if (inputRef?.current) {
@@ -29,7 +29,11 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
             }
           }
         }}
-        onFocus={(event) => event.target.select()}
+        onFocus={(event) => {
+          if (fieldValue) {
+            event.target.select();
+          }
+        }}
       />
       <span className="absolute inset-y-0 flex items-center pr-2">
         <button
@@ -37,7 +41,9 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
           className="focus:shadow-outline p-1 focus:outline-none"
           onClick={(event) => {
             event.preventDefault();
-            setSearchQuery(fieldValue);
+            if (fieldValue) {
+              setSearchQuery(fieldValue);
+            }
           }}
         >
           <svg
