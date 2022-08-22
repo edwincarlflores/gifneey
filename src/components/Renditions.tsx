@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { IImages } from "../interfaces/giphy.interface";
 import { toTitleCase } from "../utils/StringUtils";
+import { download } from "../utils/FileUtils";
 
 type RenditionsProps = {
   renditions: IImages | undefined;
@@ -21,17 +22,19 @@ type RenditionType =
   | "hd"
   | "fixed_height"
   | "fixed_width"
-  | "downsized_small"
-  | "preview";
+  | "downsized"
+  | "preview_gif";
 
 const renditionTypes: RenditionType[] = [
   "original",
-  "hd",
+  "preview_gif",
   "fixed_height",
   "fixed_width",
-  "downsized_small",
-  "preview"
+  "downsized",
+  "hd"
 ];
+
+const videoRenditions: RenditionType[] = ["hd"];
 
 const Renditions: FC<RenditionsProps> = ({
   renditions,
@@ -79,8 +82,8 @@ const Renditions: FC<RenditionsProps> = ({
               role="tablist"
             >
               {`${
-                tabKey === "downsized_small"
-                  ? toTitleCase("downsized", "_")
+                tabKey === "preview_gif"
+                  ? toTitleCase("preview", "_")
                   : toTitleCase(tabKey, "_")
               }`}
             </div>
@@ -109,13 +112,47 @@ const Renditions: FC<RenditionsProps> = ({
         />
       </svg>
 
-      <video
-        src={renditions?.[openTab]?.mp4}
-        autoPlay
-        loop
-        muted
-        className="z-30"
-      ></video>
+      {videoRenditions.includes(openTab) ? (
+        <video
+          src={renditions?.[openTab]?.mp4}
+          autoPlay
+          loop
+          muted
+          height={renditions?.[openTab]?.height}
+          width={renditions?.[openTab]?.width}
+          className="z-30"
+        ></video>
+      ) : (
+        <img
+          src={renditions?.[openTab]?.url}
+          height={renditions?.[openTab]?.height}
+          width={renditions?.[openTab]?.width}
+          alt={title}
+          className="z-30"
+        />
+      )}
+
+      <div className="mt-2 z-40 fixed bottom-[160px]">
+        <button
+          className={
+            "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-gray-900 bg-white"
+          }
+          onClick={() => {
+            const fileExtension = videoRenditions.includes(openTab)
+              ? "mp4"
+              : "gif";
+
+            download(
+              renditions?.[openTab]?.[
+                `${fileExtension === "mp4" ? "mp4" : "url"}`
+              ],
+              `${title}_${openTab}.${fileExtension}`
+            );
+          }}
+        >
+          Download
+        </button>
+      </div>
 
       <div className="fixed bottom-0 z-40 w-full h-32 px-8 mx-12 bg-transparent sm:h-28">
         <div className="text-2xl font-bold text-white font-sm md:font-xl">

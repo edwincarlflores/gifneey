@@ -73,6 +73,7 @@ interface IImage {
   width: string;
   size?: string;
   url: string;
+  mp4?: string;
 }
 
 interface IDetailedImage extends IImage {
@@ -92,6 +93,7 @@ interface IMp4 {
 interface IDetailedMp4 extends IMp4 {
   height: string;
   width: string;
+  url?: string;
 }
 
 interface IUser {
