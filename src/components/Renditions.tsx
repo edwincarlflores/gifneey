@@ -132,7 +132,7 @@ const Renditions: FC<RenditionsProps> = ({
         />
       )}
 
-      <div className="mt-2 z-40 fixed bottom-[160px]">
+      <div className="mt-2 z-40 fixed bottom-[152px]">
         <button
           className={
             "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-gray-900 bg-white"
