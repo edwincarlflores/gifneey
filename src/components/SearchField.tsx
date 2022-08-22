@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useRef, useState } from "react";
 
 type SearchFieldProps = {
   setSearchQuery: Dispatch<SetStateAction<string>>;
@@ -6,6 +6,8 @@ type SearchFieldProps = {
 
 const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
   const [fieldValue, setFieldValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <div className="relative text-gray-400">
       <input
@@ -14,14 +16,20 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
         className="w-full rounded-md bg-zinc-200 bg-opacity-70 py-2 pl-10 text-sm text-gray-700 backdrop-blur-lg focus:outline-none"
         placeholder="Search"
         value={fieldValue}
+        ref={inputRef}
         onChange={(event) => {
           setFieldValue(event.target.value);
         }}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             setSearchQuery(fieldValue);
+
+            if (inputRef?.current) {
+              inputRef?.current?.blur();
+            }
           }
         }}
+        onFocus={(event) => event.target.select()}
       />
       <span className="absolute inset-y-0 flex items-center pr-2">
         <button
