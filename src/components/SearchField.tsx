@@ -11,7 +11,7 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
       <input
         type="text"
         name="search-field"
-        className="w-full rounded-md bg-zinc-200 bg-opacity-70 py-2 pl-10 text-sm text-gray-700 backdrop-blur-lg backdrop-filter focus:outline-none"
+        className="w-full rounded-md bg-zinc-200 bg-opacity-70 py-2 pl-10 text-sm text-gray-700 backdrop-blur-lg focus:outline-none"
         placeholder="Search"
         value={fieldValue}
         onChange={(event) => {

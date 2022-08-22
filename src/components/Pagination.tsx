@@ -97,7 +97,7 @@ const Pagination: FC<PaginationProps> = ({
   }, [currentPage]);
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 flex justify-center bg-slate-50 bg-opacity-70 py-3 backdrop-blur-lg backdrop-filter">
+    <nav className="fixed inset-x-0 bottom-0 flex justify-center bg-slate-50 bg-opacity-70 py-3 backdrop-blur-lg">
       <ul className="list-style-none flex">
         <li className="page-item" onClick={onClickPreviousSetOfPages}>
           <a

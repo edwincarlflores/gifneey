@@ -11,7 +11,7 @@ type NavbarProps = {
 
 const Navbar: FC<NavbarProps> = ({ setResultType, setSearchQuery }) => {
   return (
-    <nav className="fixed inset-x-0 z-50 bg-zinc-100 bg-opacity-70 shadow-lg backdrop-blur-lg backdrop-filter">
+    <nav className="fixed inset-x-0 z-50 bg-zinc-100 bg-opacity-70 shadow-lg backdrop-blur-lg">
       <div className="mx-auto max-w-full px-4">
         <div className="flex items-center sm:space-x-4 sm:px-3">
           <div
