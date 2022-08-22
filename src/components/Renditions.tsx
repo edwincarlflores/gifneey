@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState
 } from "react";
+import useKeypress from "../hooks/useKeypress";
 import { IImages } from "../interfaces/giphy.interface";
 import { toTitleCase } from "../utils/StringUtils";
 import { download } from "../utils/FileUtils";
@@ -54,6 +55,12 @@ const Renditions: FC<RenditionsProps> = ({
 
     setTabKeys(renditionTabKeys);
   }, [renditions]);
+
+  useKeypress("Escape", () => {
+    if (open) {
+      setOpen(false);
+    }
+  });
 
   const RenditionTabs: FC = () => {
     return (
