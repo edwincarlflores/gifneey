@@ -29,7 +29,7 @@ const Pagination: FC<PaginationProps> = ({
     hover:text-gray-800 hover:bg-gray-200 focus:shadow-none`;
   const hiddenClassName = "hidden";
   const activeClassName =
-    "active bg-zinc-300 shadow-sm focus:shadow-md rounded";
+    "active bg-zinc-300 shadow-sm focus:shadow-md rounded font-bold";
 
   const groupPageNumbers = (
     pageNumbersArr: number[],
@@ -97,8 +97,8 @@ const Pagination: FC<PaginationProps> = ({
   }, [currentPage]);
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 flex justify-center py-3 bg-slate-50">
-      <ul className="flex list-style-none">
+    <nav className="fixed inset-x-0 bottom-0 flex justify-center bg-slate-50 bg-opacity-70 py-3 backdrop-blur-lg">
+      <ul className="list-style-none flex">
         <li className="page-item" onClick={onClickPreviousSetOfPages}>
           <a
             className={`${pageNumberClassName} ${

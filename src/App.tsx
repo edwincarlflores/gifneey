@@ -103,13 +103,13 @@ const App: FC = () => {
   return (
     <div className="bg-slate-50">
       <Navbar setResultType={setResultType} setSearchQuery={setSearchQuery} />
-      <div className="container h-screen p-6 mx-auto max-w-fit md:p-6 lg:px-24 lg:py-20">
+      <div className="container mx-auto h-screen max-w-fit p-6 md:p-6 lg:px-24 lg:py-20">
         {loading ? (
-          <div className="flex items-center justify-center h-full">
+          <div className="flex h-full items-center justify-center">
             <Loader />
           </div>
         ) : (
-          <div className="py-12 my-12">
+          <div className="my-12 pb-32 pt-12">
             {totalCount > 0 && !error ? (
               <>
                 <Heading

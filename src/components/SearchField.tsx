@@ -11,7 +11,7 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
       <input
         type="text"
         name="search-field"
-        className="w-full py-2 pl-10 text-sm text-gray-700 rounded-md bg-zinc-200 focus:outline-none"
+        className="w-full rounded-md bg-zinc-200 bg-opacity-70 py-2 pl-10 text-sm text-gray-700 backdrop-blur-lg focus:outline-none"
         placeholder="Search"
         value={fieldValue}
         onChange={(event) => {
@@ -26,7 +26,7 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
       <span className="absolute inset-y-0 flex items-center pr-2">
         <button
           type="submit"
-          className="p-1 focus:outline-none focus:shadow-outline"
+          className="focus:shadow-outline p-1 focus:outline-none"
           onClick={(event) => {
             event.preventDefault();
             setSearchQuery(fieldValue);
@@ -39,7 +39,7 @@ const SearchField: FC<SearchFieldProps> = ({ setSearchQuery }) => {
             strokeLinejoin="round"
             strokeWidth="2"
             viewBox="0 0 24 24"
-            className="w-6 h-6"
+            className="h-6 w-6"
           >
             <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
